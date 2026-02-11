@@ -48,38 +48,6 @@ The application follows a clean **Layered MVC Architecture (Bean → DAO → Ser
 
 ---
 
-## 🗄️ Database Setup (Oracle)
-
-### Step 1: Create a New User
-
-```sql
-sqlplus / as sysdba
-
-CREATE USER exam_user IDENTIFIED BY exam123;
-GRANT CONNECT, RESOURCE TO exam_user;
-COMMIT;
-EXIT;
-⚠️ Do NOT use the default scott/tiger account.
-
-Step 2: Create Tables (Login as new user)
-📌 QUESTION_TBL
-CREATE TABLE QUESTION_TBL (
-    QUESTION_ID VARCHAR2(12) PRIMARY KEY,
-    SUBJECT VARCHAR2(100),
-    TOPIC VARCHAR2(150),
-    DIFFICULTY VARCHAR2(20),
-    MARKS NUMBER(5,2),
-    STATUS VARCHAR2(20)
-);
-📌 TEST_PAPER_TBL
-CREATE TABLE TEST_PAPER_TBL (
-    PAPER_ID NUMBER(10) PRIMARY KEY,
-    PAPER_TITLE VARCHAR2(200),
-    SUBJECT VARCHAR2(100),
-    TOTAL_MARKS NUMBER(6,2),
-    QUESTION_ID_LIST VARCHAR2(1000),
-    STATUS VARCHAR2(20)
-);
 📂 Project Structure
 src/
 └── com.exam
